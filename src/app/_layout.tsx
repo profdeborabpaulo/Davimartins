@@ -1,58 +1,33 @@
 
+//importar o componente que controla a navegação (rotas)
+import{ Stack } from 'expo-router';
 
-import { Stack } from "expo-router";
-import { StyleSheet } from "react-native";
-
-export default function Layout() {
-  return (
+export default function Layout( ) {
+  return(
     <Stack>
       <Stack.Screen
-        name="index"
-        options={{
-          title: "Agendador de Tarefas",
-        }}
+      name='index'
+      options={{
+        title: "Agendador de Tarefas",
+      }}
       />
 
       <Stack.Screen
-        name="nova-tarefa"
-        options={{
-          title: "Nova Tarefa",
-        }}
+      name='nova-tarefa'
+      options={{
+        title: "Nova Tarefa",       
+      }}
       />
     </Stack>
   );
+  
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
+import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { useColorScheme } from 'react-native';
 
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-  },
+import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import AppTabs from '@/components/app-tabs';
 
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    padding: 12,
-  },
-});
-
- import { View, Text, TextInput } from 'react-native';
-
-
- export default function HomeScreen( ) {
-  return(
-    <View>
-      <Text> Gerenciador de tarefas</Text>
-      <TextInput
-      placeholder='Digite uma tarefa:'
-      />
-    </View>
-  );
- }
+SplashScreen.preventAutoHideAsync();
